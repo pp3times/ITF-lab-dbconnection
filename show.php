@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>ITF - work</title>
-    <meta content="" name="descriptison">
     <meta content="" name="keywords">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -23,6 +22,34 @@ if (mysqli_connect_errno($conn))
 }
 $res = mysqli_query($conn, 'SELECT * FROM guestbook');
 ?>
+    <table id="myTable" style="width: 100%;" class="display">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><?php echo $Result['Name'];?></td>
+                <td><?php echo $Result['Comment'];?></td>
+                <td><?php echo $Result['Link'];?></td>
+            </tr>
+        </tbody>
+
+    </table>
+    <script>
+    $(document).ready(function() {
+        $("#myTable").DataTable();
+    });
+    </script>
+    <?php
+mysqli_close($conn);
+?>
+</body>
+<!--<body>
     <table id="myTable" class="display" style="width: 100%;">
         <thead>
             <tr>
@@ -37,31 +64,7 @@ $res = mysqli_query($conn, 'SELECT * FROM guestbook');
                 </th>
             </tr>
         </thead>
-        <?php
-while($Result = mysqli_fetch_array($res))
-{
-?>
-        <tbody>
-            <tr>
-                <td><?php echo $Result['Name'];?></div>
-                </td>
-                <td><?php echo $Result['Comment'];?></td>
-                <td><?php echo $Result['Link'];?></td>
-            </tr>
-        </tbody>
-        <?php
-}
-?>
-    </table>
-    <script>
-    $(document).ready(function() {
-        $("#myTable").DataTable();
-    });
-    </script>
-    <?php
-mysqli_close($conn);
-?>
-</body>
+</body>-->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
 </script>
