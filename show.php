@@ -10,45 +10,62 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+    <style type="text/css">
+    body {
+        background-color: rgba(0, 0, 0, 0.125);
+    }
+    </style>
 </head>
 
-<body>
-    <?php
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-8 offset-lg-2">
+            <?php
 $conn = mysqli_init();
-mysqli_real_connect($conn, 'itflabdb.mysql.database.azure.com', 'thetimes@itflabdb', 'PooMlmp99', 'itflab', 3306);
+mysqli_real_connect($conn, 'itflabdb.mysql.database.azure.com', 'thetimes@itflab', 'PooMlmp99', 'itflab', 3306);
 if (mysqli_connect_errno($conn))
 {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 $res = mysqli_query($conn, 'SELECT * FROM guestbook');
 ?>
-    <table id="myTable" style="width: 100%;" class="display">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td><?php echo $Result['Name'];?></td>
-                <td><?php echo $Result['Comment'];?></td>
-                <td><?php echo $Result['Link'];?></td>
-            </tr>
+            <table class="table table-light my-4 shadow-sm" width="100%">
+                <thead>
+                    <tr>
+                        <th>
+                            <div align="center">Name</div>
+                        </th>
+                        <th>
+                            <div align="center">Comment </div>
+                        </th>
+                        <th>
+                            <div align="center">Link </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+while($Result = mysqli_fetch_array($res))
+{
+?>
+                    <tr>
+                        <td><?php echo $Result['Name'];?>
+        </div>
+        </td>
+        <td><?php echo $Result['Comment'];?></td>
+        <td><?php echo $Result['Link'];?></td>
+        </tr>
+        <?php
+}
+?>
         </tbody>
-
-    </table>
-    <script>
-    $(document).ready(function() {
-        $("#myTable").DataTable();
-    });
-    </script>
-    <?php
+        </table>
+        <?php
 mysqli_close($conn);
 ?>
-</body>
+    </div>
+</div>
+</div>
 <!--<body>
     <table id="myTable" class="display" style="width: 100%;">
         <thead>
