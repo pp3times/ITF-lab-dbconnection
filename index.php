@@ -11,6 +11,25 @@
 </head>
 
 <body>
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="index.php"><span>ITFxBootstrap</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="index.php">Home</a></li>
+          <li><a href="index3.html">Layout</a></li>
+          <li><a href="sub-index.html">Cards</a></li>
+
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8 offset-lg-2">
