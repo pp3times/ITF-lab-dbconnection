@@ -11,7 +11,10 @@
 </head>
 
 <body>
-    <?php
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8 offset-lg-2">
+                <?php
 $conn = mysqli_init();
 mysqli_real_connect($conn, 'itflabdb.mysql.database.azure.com', 'thetimes@itflabdb', 'PooMlmp99', 'itflab', 3306);
 if (mysqli_connect_errno($conn))
@@ -20,39 +23,43 @@ if (mysqli_connect_errno($conn))
 }
 $res = mysqli_query($conn, 'SELECT * FROM guestbook');
 ?>
-    <table class="table table-light my-4 shadow-sm" width="100%">
-        <thead>
-            <tr>
-                <th>
-                    <div align="center">Name</div>
-                </th>
-                <th>
-                    <div align="center">Comment </div>
-                </th>
-                <th>
-                    <div align="center">Link </div>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
+                <table class="table table-light my-4 shadow-sm" width="100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div align="center">Name</div>
+                            </th>
+                            <th>
+                                <div align="center">Comment </div>
+                            </th>
+                            <th>
+                                <div align="center">Link </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
 while($Result = mysqli_fetch_array($res))
 {
 ?>
-            <tr>
-                <td><?php echo $Result['Name'];?></div>
-                </td>
-                <td><?php echo $Result['Comment'];?></td>
-                <td><?php echo $Result['Link'];?></td>
+                        <tr>
+                            <td><?php echo $Result['Name'];?>
+            </div>
+            </td>
+            <td><?php echo $Result['Comment'];?></td>
+            <td><?php echo $Result['Link'];?></td>
             </tr>
             <?php
 }
 ?>
-        </tbody>
-    </table>
-    <?php
+            </tbody>
+            </table>
+            <?php
 mysqli_close($conn);
 ?>
+        </div>
+    </div>
+    </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
