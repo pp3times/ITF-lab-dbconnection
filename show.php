@@ -38,6 +38,11 @@ while($Result = mysqli_fetch_array($res))
 }
 ?>
 </table>
+<script>
+        $(document).ready(function () {
+            $("#myTable").DataTable();
+        });
+</script>
 <?php
 mysqli_close($conn);
 ?>
